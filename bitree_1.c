@@ -10,7 +10,8 @@ typedef struct biTree bt;
 
 bt* create();
 int pre(bt*root,int *a,int *n);
-
+int mid(bt*root,int *a,int *n);
+int behind();
 
 int main()
 {
@@ -58,6 +59,22 @@ int pre(bt*root,int *a,int *n)
 
         pre(root->lc,a,n);
         pre(root->rc,a,n);
+
+        return 0;
+
+    }
+
+int mid(bt*root,int *a,int *n)
+    {
+
+        if(root->lc!=NULL) mid(root->lc);
+        else return 0;
+
+        a[*n] = root->data;
+        *n = *n+1;
+
+        mid(root->rc);
+
 
         return 0;
 
